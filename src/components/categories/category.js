@@ -6,9 +6,6 @@ const Category = () => {
   return (
     <>
       <Directory categories={categories} />
-      <div>
-        <h1>This is An ecommerce app</h1>
-      </div>
     </>
   );
 };
