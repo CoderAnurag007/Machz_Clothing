@@ -1,0 +1,52 @@
+.navigation {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background-color: rgb(208, 208, 208);
+    a{
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      box-sizing: border-box;
+      padding: 5px;
+      text-align: center;
+    
+    }
+    a:hover{
+      transition: 0.3s all;
+      color: rgb(117, 3, 117);
+    }
+    .logo-container {
+        width: 150px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+  
+    .nav-links-container {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  
+      .nav-link {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #logoimg{
+    height: 150px;
+    width: 150px;
+  }
+  #trollybag{
+    height: 42px ;
+    width: 42px;
+    box-sizing: border-box;
+  }

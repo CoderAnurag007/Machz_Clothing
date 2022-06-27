@@ -1,10 +1,24 @@
 import "./App.css";
 import "./categories.styles.scss";
-import Category from "./components/categories/category";
+import Home from "./Routes/home/homepage";
+import { Route, Routes } from "react-router-dom";
+import Shop from "./Routes/home/Shop";
+import Nav from "./Routes/navigation/nav";
+import Signin from "./Routes/sign-in/sign-in.component";
+import Contact from "./Routes/contact us/contact-us.component";
 // import "./mystyles.style.scss";
 
 const App = () => {
-  return <Category />;
+  return (
+    <Routes>
+      <Route path="/" element={<Nav />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<Signin />} />
+        <Route path="contact-us" element={<Contact />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
