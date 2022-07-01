@@ -20,7 +20,7 @@ const Nav = () => {
             Contact
           </Link>
           <Link className="nav-link" to={"/sign-in"}>
-            Sign In
+            Signin/Signup
           </Link>
           <Link className="nav-link" to={"/shop"}>
             <img id="trollybag" src={trollybag} alt="" />
