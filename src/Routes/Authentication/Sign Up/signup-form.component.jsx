@@ -1,11 +1,36 @@
 import { useState } from "react";
-import Forminput from "../../components/form-Input/form-input.component";
+import Forminput from "../../../components/form-Input/form-input.component";
 import {
+  auth,
   createAuthuserfromEmailandPassword,
   createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase";
-
+  signInWithGooglePopup,
+  signInWithgoogleRedirect,
+} from "../../../utils/firebase/firebase";
+import Buttons from "../../../components/buttons/button.component";
+import "./signup.style.scss";
+import { useEffect } from "react";
+import { getRedirectResult } from "firebase/auth";
 const Signup = () => {
+  useEffect(() => {
+    async function create() {
+      const response = await getRedirectResult(auth);
+      const { user } = response;
+      const userDocref = createUserDocumentFromAuth(user);
+    }
+    create();
+  }, []);
+
+  //  Signing with GooglePopup requires SigninwithGooglePopup function and createUserDocumentFromAuth function
+  const logGoogleUserpopup = async () => {
+    const response = await signInWithGooglePopup();
+    console.log(response);
+    const { user } = response;
+    const userDocref = await createUserDocumentFromAuth(user);
+  };
+
+  //  Signing with Googleredirect requires SigninwithGoogleredirect function and createUserDocumentFromAuth function
+
   const defaultformfield = {
     displayName: "",
     email: "",
@@ -20,6 +45,7 @@ const Signup = () => {
   };
   console.log(formfield);
 
+  // Creating User From Email And Password
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -27,7 +53,6 @@ const Signup = () => {
       return;
     }
     try {
-      console.log("pass matched");
       const response = await createAuthuserfromEmailandPassword(
         email,
         password
@@ -35,11 +60,12 @@ const Signup = () => {
       const { user } = response;
       console.log("1");
       await createUserDocumentFromAuth(user, { displayName });
-
-      alert("Thankyou for Connecting With us");
+      setformfield(defaultformfield);
+      alert("Thankyou For Connecting With Us");
     } catch (error) {
       // Handle Errors here.
-      if (error.code == "auth/email-already-in-use") {
+      if (error.code === "auth/email-already-in-use") {
+        alert("email Already exists");
       } else {
         console.log("error is encountered in creation of the user", error);
       }
@@ -48,7 +74,8 @@ const Signup = () => {
   return (
     <>
       <div>
-        <h1>Sign Up With Email and Password</h1>
+        <h2>Don't Have Account</h2>
+        <span>Create new Account</span>
         <form action="" onSubmit={handleSubmit}>
           <Forminput
             label="Name"
@@ -94,8 +121,14 @@ const Signup = () => {
               onChange: handleChange,
             }}
           />
-
-          <button type="submit">Sign Up</button>
+          <div className="btn-wrap">
+            <Buttons children={"Sign Up"} type={"submit"} />
+            <Buttons
+              children={"Sign in with Google"}
+              buttonstyle={"google"}
+              click={signInWithgoogleRedirect}
+            />
+          </div>
         </form>
       </div>
     </>

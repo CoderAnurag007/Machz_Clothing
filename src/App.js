@@ -4,7 +4,7 @@ import Home from "./Routes/home/homepage";
 import { Route, Routes } from "react-router-dom";
 import Shop from "./Routes/home/Shop";
 import Nav from "./Routes/navigation/nav";
-import Signin from "./Routes/sign-in/sign-in.component";
+import Signin from "./Routes/SigninSignup-parent/sign.component.jsx";
 import Contact from "./Routes/contact us/contact-us.component";
 // import "./mystyles.style.scss";
 

@@ -10,9 +10,13 @@ const ButtonType = {
   default: "default-btn",
 };
 
-const Buttons = ({ children, buttontype }) => {
+const Buttons = ({ children, buttonstyle, type, click }) => {
   return (
-    <button className={`button-container ${ButtonType[buttontype]}`}>
+    <button
+      className={`button-container ${ButtonType[buttonstyle]}`}
+      type={`${type}`}
+      onClick={click}
+    >
       {children}
     </button>
   );
