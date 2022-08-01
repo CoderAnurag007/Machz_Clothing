@@ -7,7 +7,7 @@
     justify-content: space-between;
     // margin-bottom: 25px;
     // margin-top: 0;
-    background-color: rgb(208, 208, 208);
+    background-color: rgb(235, 245, 250);
     a{
       text-decoration: none;
       color: black;
@@ -42,6 +42,7 @@
         padding: 10px 15px;
         cursor: pointer;
       }
+    
     }
   }
 
@@ -53,4 +54,14 @@
     height: 42px ;
     width: 42px;
     box-sizing: border-box;
+  }
+  #nav-link-span {
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+  color: black;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 5px;
+  text-align: center;
   }

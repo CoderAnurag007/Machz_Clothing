@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Forminput from "../../../components/form-Input/form-input.component";
 import {
   auth,
@@ -14,20 +14,19 @@ const SignIn = () => {
     password: "",
   };
 
+  const [formfield, setformfield] = useState(defaultformfield);
   const signinwithgoogle = async () => {
     const response = await signInWithGooglePopup();
-    const { user } = response;
-    await createUserDocumentFromAuth(user);
+    // const { user } = response;
+    // await createUserDocumentFromAuth(user);
     // console.log(user);
     alert("Sign in Successful");
   };
-  const [formfield, setformfield] = useState(defaultformfield);
   const { email, password } = formfield;
   const handleChange = (event) => {
     const { name, value } = event.target;
     setformfield({ ...formfield, [name]: value });
   };
-  console.log(formfield);
 
   // Creating User From Email And Password
   const handleSubmit = async (event) => {
@@ -36,12 +35,16 @@ const SignIn = () => {
       alert("Invalid Credentials");
     }
     try {
-      const response = await signInAuthuserfromEmailandPassword(
+      const { user } = await signInAuthuserfromEmailandPassword(
         email,
         password
       );
+      try {
+        setformfield(defaultformfield);
+      } catch (e) {
+        console.log(e.message);
+      }
       alert("Sign in Successful");
-      console.log(response);
     } catch (error) {
       alert("Please Enter Valid Credentials");
     }
@@ -56,7 +59,7 @@ const SignIn = () => {
             label="Email"
             inputOptions={{
               type: "email",
-              id: "email",
+              id: "email123",
               required: true,
               name: "email",
               value: email,
@@ -67,7 +70,7 @@ const SignIn = () => {
             label="Password"
             inputOptions={{
               type: "password",
-              id: "pass",
+              id: "pass123",
               required: true,
               name: "password",
               value: password,
@@ -79,7 +82,7 @@ const SignIn = () => {
             <Buttons children={"Login"} type={"submit"} />
             <Buttons
               type={"button"}
-              children={"Login with Google"}
+              children={"Sign In with Google"}
               buttonstyle={"google"}
               click={signinwithgoogle}
             />

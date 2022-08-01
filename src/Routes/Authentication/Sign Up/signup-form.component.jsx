@@ -9,25 +9,9 @@ import {
 } from "../../../utils/firebase/firebase";
 import Buttons from "../../../components/buttons/button.component";
 import "./signup.style.scss";
-import { useEffect } from "react";
-import { getRedirectResult } from "firebase/auth";
-const Signup = () => {
-  useEffect(() => {
-    async function create() {
-      const response = await getRedirectResult(auth);
-      const { user } = response;
-      const userDocref = createUserDocumentFromAuth(user);
-    }
-    create();
-  }, []);
 
+const Signup = () => {
   //  Signing with GooglePopup requires SigninwithGooglePopup function and createUserDocumentFromAuth function
-  const logGoogleUserpopup = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response);
-    const { user } = response;
-    const userDocref = await createUserDocumentFromAuth(user);
-  };
 
   //  Signing with Googleredirect requires SigninwithGoogleredirect function and createUserDocumentFromAuth function
 
@@ -42,12 +26,14 @@ const Signup = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setformfield({ ...formfield, [name]: value });
+    console.log(formfield);
   };
-  console.log(formfield);
 
+  console.log("Hitted the mark");
   // Creating User From Email And Password
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (password !== confirmPassword) {
       alert("Pass not match");
       return;
@@ -58,7 +44,7 @@ const Signup = () => {
         password
       );
       const { user } = response;
-      console.log("1");
+      console.log(response);
       await createUserDocumentFromAuth(user, { displayName });
       setformfield(defaultformfield);
       alert("Thankyou For Connecting With Us");
@@ -123,11 +109,6 @@ const Signup = () => {
           />
           <div className="btn-wrap">
             <Buttons children={"Sign Up"} type={"submit"} />
-            <Buttons
-              children={"Sign in with Google"}
-              buttonstyle={"google"}
-              click={signInWithgoogleRedirect}
-            />
           </div>
         </form>
       </div>
