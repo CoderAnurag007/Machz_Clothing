@@ -8,7 +8,8 @@ import {
   signInWithgoogleRedirect,
 } from "../../../utils/firebase/firebase";
 import Buttons from "../../../components/buttons/button.component";
-import "./signup.style.scss";
+import "./signup.style";
+import { BtnWrapSignUp } from "./signup.style";
 
 const Signup = () => {
   //  Signing with GooglePopup requires SigninwithGooglePopup function and createUserDocumentFromAuth function
@@ -107,9 +108,9 @@ const Signup = () => {
               onChange: handleChange,
             }}
           />
-          <div className="btn-wrap">
+          <BtnWrapSignUp>
             <Buttons children={"Sign Up"} type={"submit"} />
-          </div>
+          </BtnWrapSignUp>
         </form>
       </div>
     </>

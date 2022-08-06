@@ -5,8 +5,11 @@ import {
   createUserDocumentFromAuth,
   signInAuthuserfromEmailandPassword,
 } from "../../../utils/firebase/firebase";
-import Buttons from "../../../components/buttons/button.component";
+import Buttons, {
+  Button_type_classes,
+} from "../../../components/buttons/button.component";
 import { signInWithGooglePopup } from "../../../utils/firebase/firebase";
+import { BtnWrapSignUp } from "../Sign Up/signup.style";
 
 const SignIn = () => {
   const defaultformfield = {
@@ -78,15 +81,15 @@ const SignIn = () => {
             }}
           />
 
-          <div className="btn-wrap">
+          <BtnWrapSignUp>
             <Buttons children={"Login"} type={"submit"} />
             <Buttons
               type={"button"}
               children={"Sign In with Google"}
-              buttonstyle={"google"}
+              buttonstyle={Button_type_classes.google}
               click={signinwithgoogle}
             />
-          </div>
+          </BtnWrapSignUp>
         </form>
       </div>
     </>

@@ -1,5 +1,3 @@
-import "./categorymenu.style.scss";
-
 const categories = [
   {
     id: 1,

@@ -1,8 +1,15 @@
-import "./checkout-item.styles.scss";
+import "./checkout-item.styles.jsx";
 import { useContext } from "react";
 import { cartcontext } from "../../context/cartcontext";
+import {
+  CheckOutItemContainer,
+  CheckOutItemImageContainer,
+  CheckOutQuantity,
+  CheckOutRemoveButton,
+  CheckOut_NP,
+} from "./checkout-item.styles.jsx";
 
-const CheckoutItem = ({ cartitem }) => {
+const CheckoutItemComponent = ({ cartitem }) => {
   const { name, quantity, price, imageUrl } = cartitem;
   const { additemtoCart, removeitemtoCart } = useContext(cartcontext);
   const additemhandler = () => {
@@ -15,12 +22,12 @@ const CheckoutItem = ({ cartitem }) => {
   const { directremoveitem } = useContext(cartcontext);
   return (
     <>
-      <div className="checkout-item-container">
-        <div className="image-container">
+      <CheckOutItemContainer>
+        <CheckOutItemImageContainer>
           <img src={imageUrl} alt="" />
-        </div>
-        <span className="name">{name}</span>
-        <span className="quantity">
+        </CheckOutItemImageContainer>
+        <CheckOut_NP>{name}</CheckOut_NP>
+        <CheckOutQuantity>
           <div className="arrow" onClick={removeitemhandler}>
             &#10094;
           </div>
@@ -28,17 +35,14 @@ const CheckoutItem = ({ cartitem }) => {
           <div className="arrow" onClick={additemhandler}>
             &#10095;
           </div>
-        </span>
-        <span className="price">${price}</span>
-        <div
-          className="remove-button"
-          onClick={() => directremoveitem(cartitem)}
-        >
+        </CheckOutQuantity>
+        <CheckOut_NP>${price}</CheckOut_NP>
+        <CheckOutRemoveButton onClick={() => directremoveitem(cartitem)}>
           &#x2717;
-        </div>
-      </div>
+        </CheckOutRemoveButton>
+      </CheckOutItemContainer>
     </>
   );
 };
 
-export default CheckoutItem;
+export default CheckoutItemComponent;
