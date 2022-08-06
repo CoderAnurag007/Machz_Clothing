@@ -6,7 +6,7 @@ import {
   CheckOutItemImageContainer,
   CheckOutQuantity,
   CheckOutRemoveButton,
-  CheckOut_NP,
+  CheckOutNp,
 } from "./checkout-item.styles.jsx";
 
 const CheckoutItemComponent = ({ cartitem }) => {
@@ -26,7 +26,7 @@ const CheckoutItemComponent = ({ cartitem }) => {
         <CheckOutItemImageContainer>
           <img src={imageUrl} alt="" />
         </CheckOutItemImageContainer>
-        <CheckOut_NP>{name}</CheckOut_NP>
+        <CheckOutNp>{name}</CheckOutNp>
         <CheckOutQuantity>
           <div className="arrow" onClick={removeitemhandler}>
             &#10094;
@@ -36,7 +36,7 @@ const CheckoutItemComponent = ({ cartitem }) => {
             &#10095;
           </div>
         </CheckOutQuantity>
-        <CheckOut_NP>${price}</CheckOut_NP>
+        <CheckOutNp>${price}</CheckOutNp>
         <CheckOutRemoveButton onClick={() => directremoveitem(cartitem)}>
           &#x2717;
         </CheckOutRemoveButton>

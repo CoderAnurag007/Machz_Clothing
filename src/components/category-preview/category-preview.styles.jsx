@@ -22,26 +22,3 @@ export const CategoryPreviewBox = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
 `;
-
-// .category-preview-container {
-//     display: flex;
-//     flex-direction: column;
-//     margin-bottom: 30px;
-
-//     .title {
-//       font-size: 25px;
-//       margin-bottom: 25px;
-//       cursor: pointer;
-//       text-decoration: none;
-//       color: black;
-//     }
-//     .title:hover{
-//       color: blueviolet;
-//     }
-
-//     .preview {
-//       display: grid;
-//       grid-template-columns: repeat(4, 1fr);
-//       column-gap: 20px;
-//     }
-//   }
