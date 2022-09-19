@@ -8,7 +8,7 @@ export const BaseButton = styled.button`
   line-height: 20px;
   padding: 5px 15px;
   font-size: 0.9rem;
-  background-color: rgb(9, 5, 31);
+  background-color: rgb(11, 25, 231);
   color: white;
   text-transform: uppercase;
   font-family: "Open Sans Condensed";
