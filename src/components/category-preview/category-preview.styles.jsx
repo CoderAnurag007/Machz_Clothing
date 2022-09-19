@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 export const CategoryPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 95%;
+  margin: auto;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 `;
 export const CategoryPreviewTitle = styled(Link)`
   font-size: 25px;
@@ -18,7 +21,9 @@ export const CategoryPreviewTitle = styled(Link)`
 `;
 
 export const CategoryPreviewBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 `;

@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(245, 255, 255);
-  padding: 20px 40px;
+  background-color: rgb(0, 0, 0);
+//   padding: 20px 40px;
  }
 `;

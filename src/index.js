@@ -4,20 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.style";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Userprovider } from "./context/context";
-import { CategoryProvider } from "./context/categories.context";
 import { CartProvider } from "./context/cartcontext";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Userprovider>
-      <CategoryProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </CategoryProvider>
-    </Userprovider>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

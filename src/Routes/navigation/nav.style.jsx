@@ -3,11 +3,25 @@ import { Link } from "react-router-dom";
 
 export const NavigationContainer = styled.div`
   height: 100px;
+  margin-bottom: 2rem;
   width: 100%;
   position: relative;
   align-items: center;
   display: flex;
+  background-color: white;
   justify-content: space-between;
+
+  .expand_nav {
+    width: 50px;
+    height: 50px;
+    transform: rotate(180deg);
+    display: none;
+  }
+  @media (max-width: 520px) {
+    .expand_nav {
+      display: block;
+    }
+  }
 `;
 
 export const LogoContainer = styled(Link)`
@@ -24,6 +38,10 @@ export const NavLinksContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media (max-width: 520px) {
+    display: none;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -44,4 +62,10 @@ export const NavLink = styled(Link)`
 export const Logoimage = styled.img`
   min-height: 5.5rem;
   max-width: 5.5rem;
+`;
+
+export const ExpandImg = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin-top: -12px;
 `;

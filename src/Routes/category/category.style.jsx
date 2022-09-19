@@ -5,6 +5,8 @@ export const CategoryItemContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   column-gap: 10px;
   row-gap: 50px;
+  width: 95%;
+  margin: auto;
 `;
 
 export const CategoryHead = styled.h2`

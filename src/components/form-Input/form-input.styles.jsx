@@ -28,7 +28,7 @@ export const FormGroupLabel = styled.label`
 
 export const Forminputbox = styled.input`
   background: none;
-  background-color: white;
+  background-color: rgb(166, 235, 237);
   color: $sub-color;
   font-size: 18px;
   padding: 10px 10px 10px 5px;

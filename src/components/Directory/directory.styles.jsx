@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const DirectoryBackground = styled.div`
   width: 100%;
+
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -43,7 +44,7 @@ export const DirectoryItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid white;
   margin: 0 7.5px 15px;
   overflow: hidden;
 

@@ -8,7 +8,8 @@ export const ProductImage = styled.img`
 `;
 
 export const ProductCardContainer = styled.div`
-  width: 100%;
+  width: 17rem;
+  margin: auto;
   display: flex;
   flex-direction: column;
   height: 350px;

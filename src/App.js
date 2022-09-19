@@ -7,8 +7,33 @@ import Shop from "./components/Shop/shop";
 import CheckOut from "./Routes/checkout/checkout";
 import { Fragment } from "react";
 import { GlobalStyle } from "./index.style";
+import { useEffect } from "react";
+import {
+  createUserDocumentFromAuth,
+  onAuthchangedlistener,
+  // getdocumentfromcollection,
+} from "./utils/firebase/firebase";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "./store/user/user-action";
+// import { setCategories } from "./store/category/category.action";
+// import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthchangedlistener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+
+      dispatch(setCurrentUser(user));
+
+      console.log(" from app ");
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
     <Fragment>
       <GlobalStyle />
