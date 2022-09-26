@@ -8,6 +8,7 @@ export const CheckOutItemContainer = styled.div`
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+  color: white;
 `;
 export const CheckOutItemImageContainer = styled.div`
   width: 23%;
@@ -26,7 +27,7 @@ export const CheckOutNp = styled.span`
 export const CheckOutQuantity = styled.span`
 display: flex;
 width: 23%;
-
+color:white;
   
 .arrow {
   cursor: pointer;

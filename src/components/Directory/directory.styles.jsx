@@ -23,12 +23,13 @@ export const DirectoryBodycontainer = styled.div`
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
-    color: #4a4a4a;
+    color: #000;
   }
 
   p {
     font-weight: lighter;
     font-size: 16px;
+    color: black;
   }
 `;
 export const DirectoryContainer = styled.div`

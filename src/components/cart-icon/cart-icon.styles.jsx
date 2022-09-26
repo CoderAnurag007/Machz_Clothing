@@ -8,6 +8,7 @@ export const CartIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
   cursor: pointer;
 `;
 
